@@ -1,0 +1,41 @@
+<html ng-app="cubicApp">
+	<head>
+		<title>Prueba Mapa</title>
+		<meta charset="utf-8" />
+		<link href="estilo.css" rel="stylesheet"/>
+	</head>
+
+	<body ng-controller="CubicCtrl">
+		<button ng-click="guardaMapa()">Guardar</button><button ng-click="cargaMapa()">Cargar</button><button ng-click="reiniciaMapa()">Reiniciar</button>
+		<br/>
+		<div>
+			<label>Escribe V, R, M para los colores </label><input type="text" ng-model="colRelle"><button ng-click="pintaArea()">Rellenar</button>
+			<br/>
+			<label>Esquina Superior Izquierda </label><input type="text" ng-model="supizq.fil" placeholder="Fila"><input type="text" ng-model="supizq.col" placeholder="Columna">
+			<br/>
+			<br/>
+			<label>Esquina Inferior Derecha </label><input type="text" ng-model="infder.fil" placeholder="Fila"><input type="text" ng-model="infder.col" placeholder="Columna">
+			<br/>
+			<br/>
+		</div>
+		<table border="1">
+			<tr ng-repeat="fila in filas">
+				<td ng-repeat="col in fila.col" ng-click="pulsa($parent.$index, $index, col.estado)" class="mano" ng-class="{'rojo': col.estado == '1', 'verde': col.estado == '2', 'morado': col.estado == '3', 'amarillo': col.estado == '4'}">{{$parent.$index + 1}},{{$index + 1}}</td>
+			</tr>
+		</table>
+		<button ng-click="guardaMapa()">Guardar</button><button ng-click="cargaMapa()">Cargar</button><button ng-click="reiniciaMapa()">Reiniciar</button>
+		<br/>
+		<div>
+			<label>Escribe V, R, M para los colores </label><input type="text" ng-model="colRelle"><button ng-click="pintaArea()">Rellenar</button>
+			<br/>
+			<label>Esquina Superior Izquierda </label><input type="text" ng-model="supizq.fil" placeholder="Fila"><input type="text" ng-model="supizq.col" placeholder="Columna">
+			<br/>
+			<br/>
+			<label>Esquina Inferior Derecha </label><input type="text" ng-model="infder.fil" placeholder="Fila"><input type="text" ng-model="infder.col" placeholder="Columna">
+			<br/>
+			<br/>
+		</div>
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+	<script src="app.js"></script>
+</html>
